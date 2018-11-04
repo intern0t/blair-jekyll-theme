@@ -62,20 +62,33 @@ body {
                 text-decoration: none;
             }
 
+            $initialHeaderFontSize: $globalFontSize - 7;
+
             h1 {
-                font-size: $globalFontSize * 5;
+                font-size: $initialHeaderFontSize * 4.5;
             }
             h2 {
-                font-size: $globalFontSize * 4;
+                font-size: $initialHeaderFontSize * 4;
             }
             h3 {
-                font-size: $globalFontSize * 3;
+                font-size: $initialHeaderFontSize * 3.5;
             }
             h4 {
-                font-size: $globalFontSize * 2;
+                font-size: $initialHeaderFontSize * 3;
             }
             h5 {
-                font-size: $globalFontSize * 1;
+                font-size: $initialHeaderFontSize * 2.5;
+            }
+            h6 {
+                font-size: $initialHeaderFontSize * 2;
+            }
+
+            .center {
+                text-align: center !important;
+            }
+
+            .right {
+                text-align: right !important;
             }
 
             .post-misc {
@@ -127,6 +140,7 @@ body {
                 margin: 30px 0;
 
                 &-button {
+					max-width: 50%;
                     padding: 10px;
                     font-size: $globalFontSize;
                     text-decoration: none;
@@ -143,30 +157,36 @@ body {
             align-content: center;
             align-items: center;
             padding: 25px;
+            color: $Iron;
 
             &-button {
                 @include font($globalFontFamily);
                 @include border-radius(2px);
                 font-size: $globalFontSize;
                 background: $TePapaGreen;
-                color: $Iron;
                 text-decoration: none;
                 padding: 10px;
                 margin: 10px;
+                color: $Iron;
+
+                &:hover {
+                    background: $Denim;
+                    color: $Iron;
+                }
             }
 
             .active {
-                background: $PaleSky;
-                color: $globalForegroundColor;
+                background: $Astral;
+                color: $Iron;
             }
         }
 
         .home-post {
-			border-bottom: 1px solid $PaleSky;
-			
-			&:last-child{
-				border: 0;
-			}
+            border-bottom: 1px solid $PaleSky;
+
+            &:last-child {
+                border: 0;
+            }
         }
 
         footer {
