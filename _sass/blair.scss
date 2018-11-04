@@ -38,23 +38,71 @@ body {
         article {
             @include flex;
             flex-direction: column;
+            padding: 10px 0 20px 0;
+            border-bottom: 1px solid $PaleSky;
 
             a.title {
                 text-decoration: none;
+            }
+
+            .poster {
+                max-width: 100%;
+                margin: 40px 0;
+                overflow: hidden;
+
+                a {
+                    width: 100%;
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            .read-more {
+                text-decoration: none;
+            }
+
+            h1 {
+                font-size: $globalFontSize * 5;
+            }
+            h2 {
+                font-size: $globalFontSize * 4;
+            }
+            h3 {
+                font-size: $globalFontSize * 3;
+            }
+            h4 {
+                font-size: $globalFontSize * 2;
+            }
+            h5 {
+                font-size: $globalFontSize * 1;
             }
 
             .post-misc {
                 @include flex;
                 flex-direction: column;
 
+                .post-meta {
+                    @include flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .categories,
+                    .post-published {
+                        font-size: $globalFontSize - 3;
+                        letter-spacing: 0.3px;
+                    }
+                }
+
                 .tags {
                     @include flex;
-					flex-direction: row;
-					flex-wrap: wrap;
-                    margin: 20px 0;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin: 10px 0;
 
                     .tag {
-                        font-size: $globalFontSize - 3;
+                        font-size: $globalFontSize - 5;
                         padding: 5px 10px;
                         margin: 5px 10px 5px 0;
                         text-transform: uppercase;
@@ -68,6 +116,30 @@ body {
                         }
                     }
                 }
+            }
+        }
+
+        .pagination {
+            @include flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            padding: 25px;
+
+            &-button {
+                @include font($globalFontFamily);
+                @include border-radius(2px);
+                font-size: $globalFontSize;
+                background: $TePapaGreen;
+                color: $Iron;
+                text-decoration: none;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .active {
+                background: $PaleSky;
+                color: $globalForegroundColor;
             }
         }
 

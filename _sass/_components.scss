@@ -80,10 +80,13 @@ h3,
 h4,
 h5 {
     @include font($globalFontFamily_);
-    font-size: $globalFontSize * 2;
     font-weight: bold;
     letter-spacing: 0.3px;
-    margin: ($TwoPix * 10) 0;
+	margin: ($TwoPix * 10) 0;
+	
+	a{
+		text-decoration: none;
+	}
 }
 
 blockquote {

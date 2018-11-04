@@ -7,14 +7,24 @@ layout: default
 		<a class="title" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
 	</h4>
 
-	<!-- Tags Section -->
 	<div class="post-misc">
-		{% assign categories = page.categories %} {% if categories != "" %}
-		<div class="categories">
-			<i class="fas fa-sitemap" title="category"></i> {% for category in categories %} {{ category | upcase }}{%
-			unless forloop.last %} <i class="fas fa-angle-right"></i> {% endunless %} {% endfor %}
+		<div class="post-meta">
+			{% assign categories = page.categories %} {% if categories != "" %}
+			<div class="categories">
+				<i class="fas fa-sitemap" title="category"></i> {% for category in categories %} {{ category | upcase }}{%
+				unless forloop.last %} <i class="fas fa-angle-right"></i> {% endunless %} {% endfor %}
+			</div>
+			{% endif %}
+			<div class="post-published">
+				<i class="far fa-calendar-alt"></i>
+				<time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">
+					{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+					{{ page.date | date: date_format }}
+				</time>
+			</div>
 		</div>
-		{% endif %} {% assign tags = page.tags %} {% if tags != "" %}
+		{% assign tags = page.tags %}
+		{% if tags != "" %}
 		<div class="tags">
 			{% for tag in tags %} <div class="tag"><i class="fas fa-tag" title="{{ tag | upcase }}"></i>{{ tag | upcase }}</div>{%
 			unless
@@ -22,44 +32,19 @@ layout: default
 			{% endunless %} {% endfor %}
 		</div>
 		{% endif %}
-		<span class="post-meta" title="Published date">
-			<i class="far fa-calendar-alt"></i>
-			<time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">
-				{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-				{{ page.date | date: date_format }}
-			</time>
-		</span>
 	</div>
 
 	<div class="post-content" itemprop="articleBody">
+		{% assign poster = page.poster %}
+		{% if poster %}
+		<div class="poster">
+			<a href="{{ poster }}" data-rel="lightcase">
+				<img src="{{ poster }}" />
+			</a>
+		</div>
+		{% endif %}
 		{{ page.content }}
 	</div>
-
-	<!-- Article Footer -->
-	{% assign date_format = site.minima.date_format | default: "%b %d %Y" %}
-	<footer class="post">
-		<span class="post-meta">
-			<i class="icon-calendar"></i>
-			<time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">
-				{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-				{{ page.date | date: date_format }}
-			</time>
-		</span>
-		<!-- • {% if page.author %}
-		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-					<span itemprop="name">{{ page.author }}</span>
-		</span> • {% endif %}-->
-		<span>
-			• <a class="permalink" href="{{ post.url | relative_url }}" title="Permalink"><span class="icon-link"></span>
-				Permalink</a>
-		</span> • <span>
-			<a class="disqus_trigger" itemprop="disqus" title="Load Disqus." href="#"><span class="icon-messages"></span></a>
-		</span> • <span>
-			<a title="Save to Pocket" href="https://getpocket.com/edit?url={{ post.url | relative_url | prepend: site.url }}"
-			 data-lang="en" data-save-url="{{ post.url | relative_url }}" data-pocket-count="none" data-pocket-align="left"><i
-				 class="icon-pocket"></i></a>
-		</span>
-	</footer>
 
 	<!-- Disqus -->
 	{% if site.disqus.shortname %}
