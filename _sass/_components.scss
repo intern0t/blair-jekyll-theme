@@ -14,7 +14,8 @@ code {
     padding: ($TwoPix * 3) - 1;
     border-radius: $TwoPix;
     font-size: ($TwoPix * 6);
-    color: $Iron;
+	color: $Iron;
+	vertical-align: middle;
 }
 
 p {
@@ -40,6 +41,7 @@ figure.highlight {
             line-height: $globalFontSize * 2;
             padding: 0;
             margin: 0;
+            box-shadow: none;
         }
     }
 }
@@ -93,6 +95,27 @@ h6 {
     a {
         text-decoration: none;
     }
+}
+
+$initialHeaderFontSize: $globalFontSize - 7;
+
+h1 {
+    font-size: $initialHeaderFontSize * 4.5;
+}
+h2 {
+    font-size: $initialHeaderFontSize * 4;
+}
+h3 {
+    font-size: $initialHeaderFontSize * 3.5;
+}
+h4 {
+    font-size: $initialHeaderFontSize * 3;
+}
+h5 {
+    font-size: $initialHeaderFontSize * 2.5;
+}
+h6 {
+    font-size: $initialHeaderFontSize * 2;
 }
 
 dl {
@@ -178,7 +201,7 @@ table {
 
     tfoot {
         tr {
-            border-top: 4px solid $PaleSky;
+            border-top: 2px solid $PaleSky;
 
             td {
                 padding: 15px 5px;
@@ -188,5 +211,102 @@ table {
 }
 
 hr {
+    width: 100%;
     border: 1px solid $PaleSky;
+}
+
+strong,
+b {
+    font-weight: bold;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+.wrapper {
+    width: 100%;
+    @include flex;
+}
+
+.search-result-container {
+    width: 100%;
+    @include flex;
+	flex-direction: column;
+	margin: 20px 0;
+
+    .result {
+        width: 100%;
+		padding: 10px;
+		border-bottom: 1px solid $PaleSky;
+		
+		.post-misc{
+			font-size: $globalFontSize - 2;
+			color: $Iron;
+		}
+    }
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    outline: 0;
+    border: 0;
+    background: $TePapaGreen;
+    color: $PaleSky;
+    @include font($globalFontFamily);
+    @include border-radius(2px);
+}
+
+.button {
+    min-width: 80px;
+    padding: 10px;
+    margin: 5px;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    background: $TePapaGreen;
+    color: $PaleSky;
+    @include font($globalFontFamily);
+    @include border-radius(2px);
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.btn-primary {
+    background: $Astral;
+    color: $Iron;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.tags {
+    @include flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px 0;
+
+    a,
+    a:visited,
+    .tag {
+        font-size: $globalFontSize - 5;
+        padding: 5px 10px;
+        margin: 5px 10px 5px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        background: $TePapaGreen;
+        color: $Iron;
+        @include border-radius(2px);
+        text-decoration: none;
+
+        i {
+            margin-right: 7px;
+        }
+    }
 }

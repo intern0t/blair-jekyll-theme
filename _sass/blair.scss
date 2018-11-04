@@ -17,9 +17,38 @@ body {
     // Link Colors
     a,
     a:visited {
-        color: $globalLinkColor;
+		color: $globalLinkColor;
+		text-decoration: none;
+
         &:hover {
             color: $globalLinkHoverColor;
+        }
+	}
+	
+	.side-small{
+		font-size: $globalFontSize - 3;
+	}
+
+    .progress {
+        position: fixed;
+        height: 4px;
+        top: 0;
+        left: 0;
+        background: $globalLinkColor;
+        @include box-shadow(0, 1px, 5px, $globalLinkColor);
+    }
+
+    .to-top {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background: $globalLinkColor;
+        color: $Iron;
+        padding: 10px;
+        display: none;
+
+        &:hover {
+            color: $Iron;
         }
     }
 
@@ -60,27 +89,11 @@ body {
 
             .read-more {
                 text-decoration: none;
-            }
+                margin: 10px 0;
 
-            $initialHeaderFontSize: $globalFontSize - 7;
-
-            h1 {
-                font-size: $initialHeaderFontSize * 4.5;
-            }
-            h2 {
-                font-size: $initialHeaderFontSize * 4;
-            }
-            h3 {
-                font-size: $initialHeaderFontSize * 3.5;
-            }
-            h4 {
-                font-size: $initialHeaderFontSize * 3;
-            }
-            h5 {
-                font-size: $initialHeaderFontSize * 2.5;
-            }
-            h6 {
-                font-size: $initialHeaderFontSize * 2;
+                i {
+                    vertical-align: middle;
+                }
             }
 
             .center {
@@ -89,6 +102,10 @@ body {
 
             .right {
                 text-align: right !important;
+            }
+
+            .left {
+                text-align: left !important;
             }
 
             .post-misc {
@@ -106,28 +123,6 @@ body {
                         letter-spacing: 0.3px;
                     }
                 }
-
-                .tags {
-                    @include flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    margin: 10px 0;
-
-                    .tag {
-                        font-size: $globalFontSize - 5;
-                        padding: 5px 10px;
-                        margin: 5px 10px 5px 0;
-                        text-transform: uppercase;
-                        letter-spacing: 0.4px;
-                        background: $TePapaGreen;
-                        color: $Iron;
-                        @include border-radius(2px);
-
-                        i {
-                            margin-right: 7px;
-                        }
-                    }
-                }
             }
 
             .more-posts {
@@ -138,15 +133,27 @@ body {
                 align-content: center;
                 align-items: center;
                 margin: 30px 0;
+                border-top: 1px dotted $PaleSky;
+                border-bottom: 1px dotted $PaleSky;
 
-                &-button {
-					max-width: 50%;
-                    padding: 10px;
-                    font-size: $globalFontSize;
-                    text-decoration: none;
-                    letter-spacing: 0.5px;
-                    display: block;
-                    line-height: $globalFontSize * 2;
+                &-container {
+                    max-width: 50%;
+                    @include flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .more-posts-button {
+                        padding: 10px;
+                        font-size: $globalFontSize;
+                        text-decoration: none;
+                        letter-spacing: 0.5px;
+                        display: block;
+                        line-height: $globalFontSize * 2;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: block;
+                        overflow: hidden;
+                    }
                 }
             }
         }
@@ -162,7 +169,7 @@ body {
             &-button {
                 @include font($globalFontFamily);
                 @include border-radius(2px);
-                font-size: $globalFontSize;
+                font-size: $globalFontSize - 4;
                 background: $TePapaGreen;
                 text-decoration: none;
                 padding: 10px;
@@ -198,7 +205,12 @@ body {
                 @include flex;
                 justify-content: space-between;
                 padding: 15px 0;
-                font-size: $globalFontSize - 3;
+				font-size: $globalFontSize - 1;
+				
+				.footer-section{
+					margin: 20px 0;
+					line-height: $globalFontSize + 5;
+				}
             }
         }
     }
