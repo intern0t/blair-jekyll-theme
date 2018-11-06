@@ -13,21 +13,22 @@ body {
     font-size: $globalFontSize;
     background: $globalDarkColor;
     color: $globalForegroundColor;
+    border-top: 5px solid $globalLinkColor;
 
     // Link Colors
     a,
     a:visited {
-		color: $globalLinkColor;
-		text-decoration: none;
+        color: $globalLinkColor;
+        text-decoration: none;
 
         &:hover {
             color: $globalLinkHoverColor;
         }
-	}
-	
-	.side-small{
-		font-size: $globalFontSize - 3;
-	}
+    }
+
+    .side-small {
+        font-size: $globalFontSize - 3;
+    }
 
     .progress {
         position: fixed;
@@ -35,17 +36,22 @@ body {
         top: 0;
         left: 0;
         background: $globalLinkColor;
-        @include box-shadow(0, 1px, 5px, $globalLinkColor);
+        z-index: 999;
     }
 
     .to-top {
         position: fixed;
         bottom: 0;
-        right: 0;
+        right: 5px;
         background: $globalLinkColor;
         color: $Iron;
         padding: 10px;
         display: none;
+        font-size: $globalFontSize - 2;
+        text-transform: uppercase;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        z-index: 99;
 
         &:hover {
             color: $Iron;
@@ -55,17 +61,69 @@ body {
     .container {
         max-width: $containerMaxWidth;
         margin: 0 auto;
-        padding: 20px;
+        padding: 0 20px;
 
         header {
             width: 100%;
-            border-bottom: 1px solid $PaleSky;
+            border-bottom: 3px solid $PaleSky;
             margin: 20px 0;
             padding: 15px 0;
+            @include flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+
+            .header-section {
+                .logo {
+                    color: $globalLinkColor;
+                    font-family: $globalFontFamily;
+                    font-size: $globalFontSize * 1.5;
+                    letter-spacing: 1.5px;
+
+                    &:hover {
+                        color: $globalLinkHoverColor;
+                    }
+                }
+
+                ul {
+                    @include flex;
+                    -webkit-box-pack: space-evenly;
+                    -ms-flex-pack: space-evenly;
+                    justify-content: space-evenly;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    list-style-type: none;
+
+                    li {
+                        padding: 5px;
+                        margin-left: 20px;
+
+                        a,
+                        a:visited {
+                            width: 100%;
+                            display: block;
+                            text-align: right;
+                            color: $globalLinkColor;
+
+                            &:hover {
+                                color: $globalLinkHoverColor;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         article {
             @include flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
             flex-direction: column;
             padding: 10px 0 20px 0;
 
@@ -110,11 +168,19 @@ body {
 
             .post-misc {
                 @include flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
                 flex-direction: column;
 
                 .post-meta {
                     @include flex;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: row;
                     flex-direction: row;
+                    -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
                     justify-content: space-between;
 
                     .categories,
@@ -127,10 +193,19 @@ body {
 
             .more-posts {
                 @include flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: row;
                 flex-direction: row;
+                -ms-flex-wrap: nowrap;
                 flex-wrap: nowrap;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
                 justify-content: space-between;
+                -ms-flex-line-pack: center;
                 align-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
                 align-items: center;
                 margin: 30px 0;
                 border-top: 1px dotted $PaleSky;
@@ -139,7 +214,11 @@ body {
                 &-container {
                     max-width: 50%;
                     @include flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
                     justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
                     align-items: center;
 
                     .more-posts-button {
@@ -158,10 +237,25 @@ body {
             }
         }
 
+        article.page {
+            ul {
+                li {
+                    span {
+                        font-size: $globalFontSize - 3;
+                    }
+                }
+            }
+        }
+
         .pagination {
             @include flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
             justify-content: center;
+            -ms-flex-line-pack: center;
             align-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
             padding: 25px;
             color: $Iron;
@@ -189,7 +283,7 @@ body {
         }
 
         .home-post {
-            border-bottom: 1px solid $PaleSky;
+            border-bottom: 1px dashed $PaleSky;
 
             &:last-child {
                 border: 0;
@@ -198,19 +292,39 @@ body {
 
         footer {
             width: 100%;
-            border-top: 1px solid $PaleSky;
-            margin: 20px 0;
+            border-top: 3px solid $PaleSky;
 
             .footer-container {
                 @include flex;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
                 justify-content: space-between;
                 padding: 15px 0;
-				font-size: $globalFontSize - 1;
-				
-				.footer-section{
-					margin: 20px 0;
-					line-height: $globalFontSize + 5;
-				}
+                font-size: $globalFontSize - 1;
+
+                .footer-section {
+                    margin: 20px 0;
+                    line-height: $globalFontSize + 5;
+
+                    &:last-child {
+                        text-align: right;
+                        line-height: 25px;
+                        margin-left: auto;
+                    }
+                }
+
+                .socials {
+                    @include flex;
+                    justify-content: space-around;
+                    align-content: center;
+                    align-items: center;
+
+                    a,
+                    a:visited {
+                        padding: 10px;
+                        font-size: $globalFontSize + 1;
+                    }
+                }
             }
         }
     }

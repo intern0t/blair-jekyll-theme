@@ -157,8 +157,8 @@ $(document).ready(function() {
                         '<h5><i class="fas fa-file-alt"></i>&nbsp;<a target="_blank" href="{0}">{1}</a></h5>' +
                         '<div class="tags">{2}</div>' +
                         "<p>{5}</p>" +
-                        '<p class="post-misc"><i class="fas fa-sitemap"></i>&nbsp;&nbsp;{3}<br/>' +
-                        '<i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{4}</p>' +
+                        '<p class="post-misc"><span><i class="fas fa-sitemap"></i>&nbsp;&nbsp;{3}</span>' +
+                        '<span><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{4}</span></p>' +
                         "</div>";
 
                     $(".search-result-container").append(

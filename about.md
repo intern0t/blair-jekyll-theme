@@ -4,15 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+<article markdown="1">
+### <i class="far fa-id-card"></i> About
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+[Blair](https://github.com/intern0t/blair-jekyll-theme), a minimalistic, dark, open-source [Jekyll](https://jekyllrb.com/) theme designed and developed by [@intern0t](https://github.com/intern0t/). Feel free to contribute, provide feedback, suggest improvements and most important of all, **report** bugs!
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+You can view a live demo of this theme at my [sub-domain](https://blair-jekyll.prashant.me/) deployed by [Netlify](https://www.netlify.com/).
 
+> Why are the chosen color schemes revolved around dark-ish blue?
 
-[jekyll-organization]: https://github.com/jekyll
+The answer is pretty simple, [blue]() is my favorite color although blue color strains your eyes, I tried my best to use mild blue. `:D`
+</article>
